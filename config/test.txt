@@ -1,0 +1,17 @@
+8
+nA 1 3
+nB 4.1 0
+nC -1 2
+nD -3 -5.2
+nE 8 9.5
+nF 9.2 -4
+nG 3.1 5.1
+nH -4 -5
+X|AB|AC|X|X|X|AG|X
+AB|X|BC|X|X|X|X|X
+AC|BC|X|CD|X|X|X|X
+X|X|CD|X|X|X|X|DH
+X|X|X|X|X|EF|X|X
+X|X|X|X|EF|X|GF|X
+AG|X|X|X|X|GF|X|X
+X|X|X|DH|X|X|X|X
