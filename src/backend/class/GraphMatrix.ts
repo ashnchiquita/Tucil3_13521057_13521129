@@ -5,7 +5,7 @@ import { Path } from './Path';
 import { PriorityQueue } from './PriorityQueue';
 
 export class GraphMatrix {
-    private nodes: {[key: number]: Node} = {};
+    private nodes: { [key: number]: Node } = {};
     private mat: Edge[][] = [];
     private length: number;
 
@@ -103,12 +103,34 @@ export class GraphMatrix {
         queue.enqueue(startPath.clone());
 
         while (!queue.isEmpty()) {
+            console.log(`Current queue : ${queue.toString()}`);
             let currPath = queue.dequeue();
+            console.log(`Dequeue       : ${currPath.toString()}`);
             let currNum = currPath.getLast();
 
-            // TODO: lanjutin pake format baru, benerin A* nya, harusnya nyimpen minimum lokal dulu bukan sekali ketemu finish berhenti
-        }
+            if (this.nodes[currNum].isVisited()) {
+                continue;
+            }
 
+            this.nodes[currNum].setVisited(true);
+
+            if (currNum == finish) {
+                currPath.setHn(0)
+                return currPath;
+            } else {
+                let neighbors = this.getUnvisitedNeighbors(currNum);
+
+                neighbors.forEach(num => {
+                    let childPath: Path = currPath.clone();
+                    let currGnDiff = this.mat[currPath.getLast()][num].getDist();
+                    let currHnDiff = this.nodes[currNum].getCoordinate().getDistance(this.nodes[finish].getCoordinate())
+                    childPath.add(num, currGnDiff, currHnDiff);
+                    queue.enqueue(childPath);
+                })
+            }
+
+        }
+        console.log(`No path found`);
         throw new Error("Could not find path");
     }
 
