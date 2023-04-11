@@ -115,7 +115,6 @@ export class GraphMatrix {
             this.nodes[currNum].setVisited(true);
 
             if (currNum == finish) {
-                currPath.setHn(0)
                 return currPath;
             } else {
                 let neighbors = this.getUnvisitedNeighbors(currNum);
@@ -123,7 +122,7 @@ export class GraphMatrix {
                 neighbors.forEach(num => {
                     let childPath: Path = currPath.clone();
                     let currGnDiff = this.mat[currPath.getLast()][num].getDist();
-                    let currHnDiff = this.nodes[currNum].getCoordinate().getDistance(this.nodes[finish].getCoordinate())
+                    let currHnDiff = this.nodes[num].getCoordinate().getDistance(this.nodes[finish].getCoordinate())
                     childPath.add(num, currGnDiff, currHnDiff);
                     queue.enqueue(childPath);
                 })
