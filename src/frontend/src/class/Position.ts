@@ -1,3 +1,5 @@
+
+
 export class Position {
     private x: number;
     private y: number;
@@ -10,6 +12,9 @@ export class Position {
     setY(y: number) { this.y = y; }
     getDistance(other: Position): number {
         return Math.sqrt((other.x - this.x) * (other.x - this.x) + (other.y - this.y) * (other.y - this.y));
+    }
+    getPosArr(): [number, number] {
+        return [this.x, this.y];
     }
     toString(): string { return `(${this.x}, ${this.y})`; }
 }

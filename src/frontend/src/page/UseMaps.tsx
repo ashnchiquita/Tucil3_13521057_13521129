@@ -15,11 +15,11 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const center = {
+export const center = {
   lat: 51.505,
   lng: -0.09,
 }
-function DraggableMarker() {
+export function DraggableMarker() {
   const [draggable, setDraggable] = useState(false)
   const [position, setPosition] = useState(center)
   const markerRef = useRef<any>(null)
@@ -67,8 +67,8 @@ export const UseMaps = () => (
       alignItems="center"
       flexWrap="wrap"
       position="sticky"
-      top="0"
-      zIndex="999"
+      left="0"
+      zIndex="990"
     >
       <MapContainer center={center} zoom={13} scrollWheelZoom={false}>
         <TileLayer
