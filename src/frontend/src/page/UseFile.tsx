@@ -3,16 +3,9 @@ import { Box, Text, Flex, Button, Switch } from "@chakra-ui/react"
 import { PageTemplate } from '../layout/Template';
 import { GraphMatrix } from "../class/GraphMatrix";
 import { Path } from "../class/Path";
-import { DraggableMarker, center } from "./UseMaps";
 import { MapContainer, TileLayer, Popup, Marker, Polyline } from "react-leaflet";
 import { Node } from "../class/Node";
 import { useState } from "react";
-
-function getUCSPath(fileStr: string): string {
-  let graph: GraphMatrix = new GraphMatrix(fileStr);
-  let searchPath: Path = graph.searchUCS(7,4);
-  return `Polyline:<br>${graph.getPolylineName(searchPath)}</br><br>Weight:<br>${searchPath.getPrio()}</br>`;
-}
 
 const arrayRange = (start: number = 0, stop: number, step: number = 1) =>
     Array.from(
@@ -25,7 +18,7 @@ const Red = { color: 'red' }
 
 function grapher (fileStr: string, isUCS: boolean = true) {
   let graph: GraphMatrix = new GraphMatrix(fileStr);
-  let searchPath: Path = isUCS ? graph.searchUCS(0,3) : graph.searchAStar(0,7);
+  let searchPath: Path = isUCS ? graph.searchUCS(0,9) : graph.searchAStar(7,3);
   let nodes: { [key: number]: Node } = graph.getNodeMap();
   let nNodes = graph.getLength();
   let iArr = arrayRange(0,nNodes);
@@ -47,7 +40,7 @@ function grapher (fileStr: string, isUCS: boolean = true) {
   </MapContainer>);}
 
 export const UseFile = () =>  {
-  const [isUCS, setIsUCS] = useState(true);
+    const [isUCS, setIsUCS] = useState(true);
     const [openFileSelector, { filesContent, loading }] = useFilePicker({
       accept: ".txt"
     });

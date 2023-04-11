@@ -25,7 +25,6 @@ export class GraphMatrix {
             } else {
                 throw new Error("Invalid file");
             }
-
         }
 
         // create adjacency matrix

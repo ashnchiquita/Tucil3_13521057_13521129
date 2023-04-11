@@ -1,0 +1,19 @@
+9
+1_MuseumKonferensiAsiaAfrika -6.921444 107.609762
+2_BRIAlunAlun -6.921223 107.607737
+3_JembatanBelakangMuseum -6.921347 107.608779
+4_HalteAlunAlun -6.922536 107.607622
+5_PertigaanSatopolPP -6.922392 107.606349
+6_KantorPos -6.920996 107.606465
+7_Norsefiicden -6.920868 107.604078
+8_HalteTrans -6.922095 107.604019
+9_TamanAsiaAfrika -6.919739 107.608975
+X|X|A|X|X|X|X|X|X
+X|X|B|D|X|E|X|X|X
+A|B|X|X|X|X|X|X|C
+X|D|X|X|F|X|X|X|X
+X|X|X|F|X|X|X|G|X
+X|E|X|X|X|X|I|X|X
+X|X|X|X|X|I|X|H|X
+X|X|X|X|G|X|H|X|X
+X|X|C|X|X|X|X|X|X
