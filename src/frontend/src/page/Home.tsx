@@ -1,8 +1,5 @@
-import { Box, Button,
-    // Image,
-    Heading, Flex, Link } from '@chakra-ui/react';
+import { Box, Button, Heading, Flex, Link } from '@chakra-ui/react';
 import { PageTemplate } from '../layout/Template';
-// import { Link } from 'react-router-dom';
 
 export const Home = () => (
   <PageTemplate title = "Home">

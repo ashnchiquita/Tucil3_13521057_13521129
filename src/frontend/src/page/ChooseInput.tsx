@@ -1,7 +1,6 @@
-import Kotak from '../asset/kotak.svg';
-import { Box,
-    // Image,
-    Heading, Flex, Button, Link, HStack } from '@chakra-ui/react';
+import Maps from '../asset/maps.svg';
+import Txt from '../asset/txt.svg';
+import { Box, Image, Text, Card, CardBody, Heading, Flex, Link, Stack, VStack } from '@chakra-ui/react';
 import { PageTemplate } from '../layout/Template';
 
 export const ChooseInput = () => (
@@ -44,91 +43,64 @@ export const ChooseInput = () => (
           Input Type!
         </Heading>
       </Box>
-      <HStack spacing={8}>
-      <Link href="https://www.google.com">
+      
+      <VStack mt = '3em' spacing={5}>
+        <Link href="/choose/file" style={{ textDecoration: 'none' }}>
+          <Card
+            direction='row'
+            overflow='hidden'
+            variant='outlined'
+            bg="#5F45C6"
+            maxW='sm'
+            borderRadius='30px'
+            >
+            <Image
+              objectFit='cover'
+              maxW='30%'
+              src={Txt}
+            />
 
-        <Button
-          background="#8669FA"
-          borderRadius="50px"
-          mt='2em'
-          p='1.2em'
-          lineHeight="92%"
-          // fontFamily="Subheading"
-        //   mt={{
-        //     base: 5,
-        //     md: 8
-        //   }}
-        //   p={{
-        //     md: '1em'
-        //   }}
-        //   fontSize={{
-        //     base: '1em',
-        //     md: '1.5em'
-        //   }}
-            fontSize='1.5em'
-            _hover={{
-              transform: 'scale(1.1)'
-            }}
-        >
+          <Stack>
+            <CardBody>
+              <Heading size='lg' color = 'white'>Text File</Heading>
 
-          Text File
-        </Button>
+              <Text color = 'white'>
+                Lorem ipsum dolor sit amet, anjay anjay anjay
+              </Text>
+            </CardBody>
+
+          </Stack>
+        </Card>
       </Link>
-      <Link href="https://www.google.com">
-        <Button
-          background="#8669FA"
-          borderRadius="50px"
-          mt='2em'
-          p='1.2em'
-          lineHeight="92%"
-          // fontFamily="Subheading"
-        //   mt={{
-        //     base: 5,
-        //     md: 8
-        //   }}
-        //   p={{
-        //     md: '1em'
-        //   }}
-        //   fontSize={{
-        //     base: '1em',
-        //     md: '1.5em'
-        //   }}
-            fontSize='1.5em'
-            _hover={{
-              transform: 'scale(1.1)'
-            }}
-        >
-          Maps
-        </Button>
+      <Link href="/choose/maps" style={{ textDecoration: 'none' }}>
+          <Card
+            direction='row'
+            overflow='hidden'
+            variant='outlined'
+            bg="#5F45C6"
+            maxW='sm'
+            borderRadius='30px'
+            >
+            <Image
+              objectFit='cover'
+              maxW='30%'
+              src={Maps}
+            />
+
+          <Stack>
+            <CardBody>
+              <Heading size='lg' color = 'white'>Maps</Heading>
+
+              <Text color = 'white'>
+                Lorem ipsum dolor sit amet, anjay anjay anjay
+              </Text>
+            </CardBody>
+
+          </Stack>
+        </Card>
       </Link>
-      </HStack >
-      {/* <Link href="/choose">
-        <Button
-          background="#8669FA"
-          borderRadius="50px"
-          mt='2em'
-          p='1.2em'
-          lineHeight="92%"
-          // fontFamily="Subheading"
-        //   mt={{
-        //     base: 5,
-        //     md: 8
-        //   }}
-        //   p={{
-        //     md: '1em'
-        //   }}
-        //   fontSize={{
-        //     base: '1em',
-        //     md: '1.5em'
-        //   }}
-            fontSize='1.5em'
-            _hover={{
-              transform: 'scale(1.1)'
-            }}
-        >
-          Get Started
-        </Button>
-      </Link> */}
+      </VStack>
+
     </Flex>
   </PageTemplate>
 );
