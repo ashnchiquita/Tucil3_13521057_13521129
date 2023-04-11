@@ -45,21 +45,10 @@ export const Home = () => (
         <Button
           background="#8669FA"
           borderRadius="50px"
+          color = 'white'
           mt='2em'
           p='1.2em'
           lineHeight="92%"
-          // fontFamily="Subheading"
-        //   mt={{
-        //     base: 5,
-        //     md: 8
-        //   }}
-        //   p={{
-        //     md: '1em'
-        //   }}
-        //   fontSize={{
-        //     base: '1em',
-        //     md: '1.5em'
-        //   }}
             fontSize='1.5em'
             _hover={{
               transform: 'scale(1.1)'

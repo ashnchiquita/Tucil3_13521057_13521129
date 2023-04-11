@@ -1,5 +1,5 @@
-import { GraphMatrix } from "./class/GraphMatrix";
-import { Path } from "./class/Path";
+import { GraphMatrix } from "./GraphMatrix";
+import { Path } from "./Path";
 
 // path relatif thd main
 let graph: GraphMatrix = new GraphMatrix("../../config/test.txt");

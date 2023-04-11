@@ -9,9 +9,40 @@ export class GraphMatrix {
     private mat: Edge[][] = [];
     private length: number;
 
-    constructor(filePath: string) {
-        const fs = require('fs');
-        const allFileContents = fs.readFileSync(filePath, 'utf-8');
+    // constructor(filePath: string) {
+    //     const fs = require('fs');
+    //     const allFileContents = fs.readFileSync(filePath, 'utf-8');
+    //     let allLines = allFileContents.split(/\r?\n/);
+    //     this.length = + allLines[0];
+
+    //     // create nodes dictionary
+    //     for (var i = 0; i < this.length; i++) {
+    //         let currPos = allLines[i + 1].split(' ')
+    //         if (currPos.length == 3) {
+    //             this.nodes[i] = new Node(new Position(+ currPos[1], + currPos[2]), currPos[0]);
+    //         } else if (currPos.length == 2) {
+    //             this.nodes[i] = new Node(new Position(+ currPos[0], + currPos[1]));
+    //         } else {
+    //             throw new Error("Invalid file");
+    //         }
+
+    //     }
+
+    //     // create adjacency matrix
+    //     let offset = 1 + this.length;
+    //     for (var i = 0; i < this.length; i++) {
+    //         this.mat[i] = [];
+    //         let currJalan = allLines[offset + i].split('|');
+    //         for (var j = 0; j < this.length; j++) {
+    //             let eucDist: number = this.nodes[i].getCoordinate().getDistance(this.nodes[j].getCoordinate());
+    //             this.mat[i][j] = new Edge(currJalan[j], eucDist);
+    //         }
+    //     }
+    // }
+
+    constructor(allFileContents: string) {
+        // const fs = require('fs');
+        // const allFileContents = fs.readFileSync(fileContent, 'utf-8');
         let allLines = allFileContents.split(/\r?\n/);
         this.length = + allLines[0];
 
