@@ -41,7 +41,7 @@ export const Home = () => (
           RouteFinder
         </Heading>
       </Box>
-      <Link href="/choose/">
+      <Link href="/choose/" style={{ textDecoration: 'none' }}>
         <Button
           background="#8669FA"
           borderRadius="50px"

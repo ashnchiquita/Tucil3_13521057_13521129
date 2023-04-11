@@ -43,8 +43,8 @@ export const ChooseInput = () => (
           Input Type!
         </Heading>
       </Box>
-      
-      <VStack mt = '3em' spacing={5}>
+
+      <VStack mt = '3em' spacing={8}>
         <Link href="/choose/file" style={{ textDecoration: 'none' }}>
           <Card
             direction='row'
@@ -53,6 +53,9 @@ export const ChooseInput = () => (
             bg="#5F45C6"
             maxW='sm'
             borderRadius='30px'
+            _hover={{
+              transform: 'scale(1.05)'
+            }}
             >
             <Image
               objectFit='cover'
@@ -80,6 +83,9 @@ export const ChooseInput = () => (
             bg="#5F45C6"
             maxW='sm'
             borderRadius='30px'
+            _hover={{
+              transform: 'scale(1.05)'
+            }}
             >
             <Image
               objectFit='cover'

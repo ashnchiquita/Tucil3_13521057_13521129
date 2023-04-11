@@ -25,7 +25,7 @@ export const NavBar = () => (
     >
         <Box alignItems="center">
         <ScaleFade initialScale={0.9} delay={0.5} in={true} >
-          <Link href="/">
+          <Link href="/" style={{ textDecoration: 'none' }}>
             <HStack>
               <Image
                 src={Logo}
@@ -57,7 +57,7 @@ export const NavBar = () => (
 
             <HStack spacing={8}>
             <ScaleFade initialScale={0.9} delay={0.5} in={true} >
-              <Link href="/choose">
+              <Link href="/choose" style={{ textDecoration: 'none' }}>
               <Text
                 fontSize="2xl"
                 // fontFamily="Heading"
@@ -71,7 +71,7 @@ export const NavBar = () => (
               </Link>
               </ScaleFade>
               <ScaleFade initialScale={0.9} delay={0.5} in={true} >
-              <Link href="/">
+              <Link href="/" style={{ textDecoration: 'none' }}>
               <Text
                 fontSize="2xl"
                 // fontFamily="Heading"
