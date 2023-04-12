@@ -68,7 +68,7 @@ export const ChooseInput = () => (
               <Heading size='lg' color = 'white'>Text File</Heading>
 
               <Text color = 'white'>
-                Lorem ipsum dolor sit amet, anjay anjay anjay
+                Follow instructions in README file
               </Text>
             </CardBody>
 
@@ -98,7 +98,7 @@ export const ChooseInput = () => (
               <Heading size='lg' color = 'white'>Maps</Heading>
 
               <Text color = 'white'>
-                Lorem ipsum dolor sit amet, anjay anjay anjay
+                hahah work in progress
               </Text>
             </CardBody>
 
