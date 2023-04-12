@@ -70,7 +70,7 @@ Setelah program dijalankan, akan terbuka tampilan seperti berikut
 
 [adjacency (n,1)]|[adjacency (n,2)]| ... |[adjacency (n,n)]
 ***
-**adjacency diisi dengan 'X' jika tidak berisisian atau nama jalan (tanpa spasi) jika bersisian** 
+**adjacency diisi dengan 'X' jika tidak berisisian atau nama jalan jika bersisian dan nama node ditulis tanpa spasi** 
 contoh:
 ***
 8
