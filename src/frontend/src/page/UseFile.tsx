@@ -36,6 +36,7 @@ function route (fileStr: string, isUCS: boolean = false, isBase: boolean) {
   let searchPath: Path = isUCS ? graph.searchUCS(0, nNodes - 1) : graph.searchAStar(0, nNodes - 1);
   let polylineanswer = graph.getPolylineArr(searchPath);
   return (
+    <VStack>
     <MapContainer center={nodes[0].getCoordinate().getPosArr()} zoom={17} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -49,6 +50,12 @@ function route (fileStr: string, isUCS: boolean = false, isBase: boolean) {
       <Polyline pathOptions={Blue} positions={allpolylines}/>
       {!isBase ? <Polyline pathOptions={Red} positions={polylineanswer}/> : null}
     </MapContainer>
+    <Box>
+      <Text color={'white'}>
+        Path Cost : {!isBase ? searchPath.getPrio() + ' meter' : '-'}
+      </Text>
+    </Box>
+    </VStack>
     )
   }
 
