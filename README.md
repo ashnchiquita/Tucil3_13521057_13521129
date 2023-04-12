@@ -107,6 +107,7 @@ X|X|X|DH|X|FG|X|GH
 
 X|X|X|X|X|X|GH|X
 ***
+**Perhatikan juga bahwa** rute diarahkan dari *node* pertama ke *node* terakhir pada *file input*
 
 5. Tekan 'Find Route' untuk memulai pencarian dan tampilan akan menampilkan solusi pada peta seperti berikut
 
