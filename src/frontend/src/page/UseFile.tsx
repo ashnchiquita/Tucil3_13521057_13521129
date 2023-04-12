@@ -18,7 +18,7 @@ const Red = { color: 'red' }
 
 function baseMap() {
   return (
-    <MapContainer center={[-6.893036, 107.610444]} zoom={20} scrollWheelZoom={false}>
+    <MapContainer center={[-6.893036, 107.610444]} zoom={17} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -27,38 +27,16 @@ function baseMap() {
   )
 }
 
-function baseGraph(fileStr: string) {
+function route (fileStr: string, isUCS: boolean = false, isBase: boolean) {
   let graph: GraphMatrix = new GraphMatrix(fileStr);
   let nodes: { [key: number]: Node } = graph.getNodeMap();
   let nNodes = graph.getLength();
   let iArr = arrayRange(0,nNodes);
   let allpolylines = graph.getAllPolyLine();
-  return (
-    <MapContainer center={nodes[0].getCoordinate().getPosArr()} zoom={20} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {iArr.map(i => <Marker position={nodes[i].getCoordinate().getPosArr()}>
-        <Popup>
-          {nodes[i] !== undefined? nodes[i].getName() : "undefined"}
-        </Popup>
-      </Marker>)}
-      <Polyline pathOptions={Blue} positions={allpolylines}/>
-    </MapContainer>
-  )
-}
-
-function route (fileStr: string, isUCS: boolean = true, isBase: boolean) {
-  let graph: GraphMatrix = new GraphMatrix(fileStr);
-  let searchPath: Path = isUCS ? graph.searchUCS(0,9) : graph.searchAStar(7,3);
-  let nodes: { [key: number]: Node } = graph.getNodeMap();
-  let nNodes = graph.getLength();
-  let iArr = arrayRange(0,nNodes);
-  let allpolylines = graph.getAllPolyLine();
+  let searchPath: Path = isUCS ? graph.searchUCS(0, nNodes - 1) : graph.searchAStar(0, nNodes - 1);
   let polylineanswer = graph.getPolylineArr(searchPath);
   return (
-    <MapContainer center={nodes[0].getCoordinate().getPosArr()} zoom={20} scrollWheelZoom={false}>
+    <MapContainer center={nodes[0].getCoordinate().getPosArr()} zoom={17} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,15 +63,25 @@ function allMap(isUploaded: boolean, isRouteFound: boolean, isUCS: boolean, file
 }
 
 export const UseFile = () =>  {
-    const [isUCS, setIsUCS] = useState(true);
+    const [isUCS, setIsUCS] = useState(false);
     const [isRouteFound, setIsRouteFound] = useState(false);
 
     const [openFileSelector, { filesContent, loading }] = useFilePicker({
       accept: ".txt"
     });
 
+    function wrapper() {
+      setIsRouteFound(false);
+      return openFileSelector();
+    }
+
+    function wrapper2() {
+      setIsRouteFound(false);
+      setIsUCS(!isUCS);
+    }
+
     if (loading) {
-      return <div>Loading...</div>;
+      return <>Loading...</>;
     }
     return (
       <PageTemplate title="Text">
@@ -110,7 +98,7 @@ export const UseFile = () =>  {
           left="0"
           zIndex="990"
         >
-          {allMap(filesContent.length != 0, isRouteFound, isUCS, filesContent)}
+          
           <Flex
             flexDirection="column"
             alignItems="center"
@@ -139,7 +127,7 @@ export const UseFile = () =>  {
                 </Text>
               </Box>
               <Button
-                onClick={() => openFileSelector()}
+                onClick={() => wrapper()}
                 background="#8669FA"
                 borderRadius="20px"
                 mt='0.5em'
@@ -163,7 +151,7 @@ export const UseFile = () =>  {
                 </Text>
                 <Switch colorScheme='purple' size='lg'
                   alignSelf='center'
-                  onChange={() => setIsUCS(!isUCS)}
+                  onChange={() => wrapper2()}
                   checked={isUCS}
                 ></Switch>
                 <Text fontSize="1em" fontWeight="bold" color ="white">
@@ -187,6 +175,8 @@ export const UseFile = () =>  {
             </Button>
             </Flex>
           </Flex>
+          {/* { filesContent.length > 0 ? route(filesContent[0].content, isUCS, false) : baseMap()} */}
+          {allMap(filesContent.length == 1, isRouteFound, isUCS, filesContent)}
         </Flex>
       </PageTemplate>
     );

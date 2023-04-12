@@ -69,7 +69,7 @@ export class GraphMatrix {
 
     getLength(): number { return this.length; }
     searchUCS(start: number, finish: number): Path {
-        console.log(`Starting UCS from node ${this.nodes[start].getName()} to ${this.nodes[finish].getName()}...`);
+        // console.log(`Starting UCS from node ${this.nodes[start].getName()} to ${this.nodes[finish].getName()}...`);
         this.resetAllVisisted();
 
         // inisialisasi
@@ -79,15 +79,15 @@ export class GraphMatrix {
         queue.enqueue(startPath.clone());
 
         while (!queue.isEmpty()) {
-            console.log(`Current queue : ${queue.toString()}`);
+            // console.log(`Current queue : ${queue.toString()}`);
             let currPath = queue.dequeue();
-            console.log(`Dequeue       : ${currPath.toString()}`);
+            // console.log(`Dequeue       : ${currPath.toString()}`);
             let currNum = currPath.getLast();
 
             if (currNum == finish) {
                 this.nodes[currNum].setVisited(true);
-                console.log(`Search finished`);
-                console.log(`Result: ${currPath.toString()}`);
+                // console.log(`Search finished`);
+                // console.log(`Result: ${currPath.toString()}`);
                 return currPath;
             } else if (!this.nodes[currNum].isVisited()) {
                 let neighbors = this.getUnvisitedNeighbors(currNum);
@@ -101,7 +101,7 @@ export class GraphMatrix {
                 })
             }
         }
-        console.log(`No path found`);
+        // console.log(`No path found`);
         throw new Error("Could not find path");
     }
 
@@ -115,9 +115,9 @@ export class GraphMatrix {
         queue.enqueue(startPath.clone());
 
         while (!queue.isEmpty()) {
-            console.log(`Current queue : ${queue.toString()}`);
+            // console.log(`Current queue : ${queue.toString()}`);
             let currPath = queue.dequeue();
-            console.log(`Dequeue       : ${currPath.toString()}`);
+            // console.log(`Dequeue       : ${currPath.toString()}`);
             let currNum = currPath.getLast();
 
             if (this.nodes[currNum].isVisited()) {
@@ -141,7 +141,7 @@ export class GraphMatrix {
             }
 
         }
-        console.log(`No path found`);
+        // console.log(`No path found`);
         throw new Error("Could not find path");
     }
 
