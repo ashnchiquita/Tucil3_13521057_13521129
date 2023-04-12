@@ -1,21 +1,21 @@
 10
-1_SamsatSoekarnoHatta -6.945952 107.641813
+1_MargacintaPark -6.955034 107.647558
 2_MasjidAgungBuahBatu -6.954105 107.640171
 3_PasarKordon -6.954475 107.639066
 4_RSMayapada -6.948735 107.634099
-5_MargacintaPark -6.955034 107.647558
+5_SamsatSoekarnoHatta -6.945952 107.641813
 6_JlBahagiaPermaiIV -6.952744 107.648087
 7_CurvasudMilanewow -6.952563 107.644643
 8_SPDBandung -6.949475 107.644769
 9_AmertaIndahOtsuka -6.949145 107.641368
 10_JlnTol -6.946480 107.638600
-X|X|X|X|X|X|X|X|A|B
-X|X|G|X|H|X|X|X|D|X
+X|B|X|X|X|K|X|X|X|X
+B|X|G|X|X|X|X|X|D|X
 X|G|X|F|X|X|X|X|X|X
 X|X|F|X|X|X|X|X|X|E
-X|H|X|X|X|I|X|X|X|X
-X|X|X|X|I|X|J|X|X|X
+X|X|X|X|X|X|X|X|I|G
+K|X|X|X|X|X|J|X|X|X
 X|X|X|X|X|J|X|K|X|X
 X|X|X|X|X|X|K|X|C|X
-A|D|X|X|X|X|X|C|X|X
-B|X|X|E|X|X|X|X|X|X
+X|D|X|X|I|X|X|C|X|X
+X|X|X|E|G|X|X|X|X|X
